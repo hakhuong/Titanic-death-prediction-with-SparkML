@@ -1,8 +1,7 @@
-# Titanic-death-prediction-with-SparkML
 This one of the projects that I practiced using big data tools like Spark. 
 
 # Use Case Name
- Using Spark MLib in Machine Learning, predict survival in Titanic dataset
+Using Spark MLib in Machine Learning, predict survival in Titanic dataset
  
 # Introduction
 The goal of this project is to predict the survival rate of passenger on the Titanic. This project used multiple methods to predict the survival rate, such as regression, decision tree and random forest. Basic EDA and data manipulation to get the data ready for machine learning were also done. I added few more lines of code about model evaluation to better understand the effectiveness of models.  
@@ -21,7 +20,7 @@ In this library, I used the **Spark ML Pipeline, StringIndexer, VectorAssembler,
 
 To call machine learning API and algorithms for model creation, I had to import them from spark.ml.classification. This module has algorithm for multiple machine learning methods as described in the results. Lastly, the evaluate function was called from the MultiClassClassificationEvaluator to calculate accuracy and f-score. 
 
-# Results: 
+# Results 
 
 In the tragic Titanic event, only 37.7% passengers survived. The survival rate in gender is disparate, 82.6% women survived while only 12.0% men survived. The survival rate is also distinct between passenger class. In class 1, 57.5% of passengers lived, 42.2% of passengers in class 2 lived, and only 26.9% passengers survived the tragedy. 
 Of all machine learning model, **Naïve Bayes** produced the worst accuracy and f-score. This result makes sense because this data has a high level of multicollinearity.  For example, Pclass and Fare can be highly correlated, SibSP and FamilySize definitely correlates with each other. Dealing with data that has multicollinearity really contaminates the calculation of Naïve Bayes.
@@ -34,7 +33,7 @@ A limitation for **logistic regression** models is that categorical variables as
 
 Another limitation for these models was that there was no scaling. For models that are sensitive to distance, such as support vector machine, scaling is important for accuracy. With unscaled data, the different ranges of variables can skew the calculation. One variable can overwhelm the overall computation is they are disproportionately greater than other variables. In our case, “Fare” has much greater scale than family size and can introduce bias to support vector machine model. 
 
-# Insight
+# Insights
 The prediction of survival can be helpful to identify people at risk in a disaster, man-made or natural. Titanic accidence is just an incidence that makes patterns of behaviors become obvious at the moment of life and death. In a disaster, the unprivileged are often people who suffer the negative consequences of an unfortunate event. For example, as global warming is happening, people who are at higher risk of global warming consequences (i.e., flood, heat wave) are poor people with minimum physical support in such unfortunate events. By using machine learning to mine the pattern of who are at higher risk, policy makers can provide appropriate preventions to reduce the severity of the catastrophe. Prediction itself is a good way to anticipate in an event of disaster to have appropriate measures of preparation. Furthermore, model can be understood to identify the at-risk groups to specifically help them. This action can be done by studying the coefficient and odds ratios in logistic regression model or analyzing decision tree. 
 # Debugging Detail
 a. In RandomForestClassifier, they incorrectly call DecisionTreeClassifier function. I corrected with RandomForestClassifier function.
